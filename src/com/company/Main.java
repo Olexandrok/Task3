@@ -49,17 +49,20 @@ public class Main {
         if (computerMoveIndex == (args.length/2))
             result = index > computerMoveIndex? "You win!": index < computerMoveIndex? "You lost!": "Draw!";
         else
-        if (computerMoveIndex > args.length/2)
-            if(getIndexOf(Arrays.copyOfRange(args, computerMoveIndex - args.length/2, computerMoveIndex), userMove) == -1)
-                result = "You win!";
+            if (computerMoveIndex == index)
+                result = "Draw!";
             else
-                result = "You lost!";
-        else
-        if (computerMoveIndex < args.length/2)
-            if(getIndexOf(Arrays.copyOfRange(args, computerMoveIndex, computerMoveIndex + args.length/2), userMove) != -1)
-                result = "You win!";
-            else
-                result = "You lost!";
+                if (computerMoveIndex > args.length/2)
+                    if(getIndexOf(Arrays.copyOfRange(args, computerMoveIndex - args.length/2, computerMoveIndex), userMove) == -1)
+                        result = "You win!";
+                    else
+                        result = "You lost!";
+                else
+                    if (computerMoveIndex < args.length/2)
+                        if(getIndexOf(Arrays.copyOfRange(args, computerMoveIndex, computerMoveIndex + args.length/2), userMove) != -1)
+                            result = "You win!";
+                        else
+                            result = "You lost!";
 
         System.out.println(result);
         System.out.println("HMAC key: " + toHexString(key));
